@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 
 const ConvertToLang = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
+  setOutput("")
+
   let str2 = '\n"""\nThe time complexity of this "Function" is';
   let str = `// Write your code in any language of your choice
 
@@ -16,7 +18,7 @@ const ConvertToLang = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
   let inputRef = useRef();
   let langRef = useRef();
   function handleClick() {
-    // setOutput("Running...")
+    setOutput("Running...")
     setModel(`text-curie-001`);
     setPrompt(
       `Translate this function into ${langRef.current.value} ${inputRef.current.value}`

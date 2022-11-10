@@ -6,7 +6,7 @@ const Footer = ({ output, setOutput, prompt1, setPrompt }) => {
   return (
     <div className="mb-10">
       {/* <div className="w-[80vw] h-[.2vh] bg-gray-400 m-auto translate-y-[85px] hidden md:flex "></div> */}
-      <div className="flex w-[70vw] m-auto justify-between items-top text-white text--1 flex-col md:flex-row">
+      <div className="flex w-[90vw] m-auto justify-evenly items-top text-white text--1 flex-col md:flex-row">
         <section className="">
           <p className="my-10 font-semibold text-lg underline-offset-[10px] bg-gray-700/40 text-white py-3 px-5 rounded-md">
             Coding help
@@ -30,7 +30,7 @@ const Footer = ({ output, setOutput, prompt1, setPrompt }) => {
             Convert to other Language
           </div>
         </section>
-        <section className="">
+        {/* <section className="">
           <p className="my-10 font-semibold text-lg underline-offset-[10px] bg-gray-700/40 text-white py-3 px-5 rounded-md">
             Frendly chat
           </p>
@@ -38,7 +38,7 @@ const Footer = ({ output, setOutput, prompt1, setPrompt }) => {
               setOutput("");
               nav("ChatBot");
             }}>Chat Bot</div>
-        </section>
+        </section> */}
         <section className="">
           <p className="my-10 font-semibold text-lg underline-offset-[10px] bg-gray-700/40 text-white py-3 px-5 rounded-md">
             English / General

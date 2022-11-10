@@ -2,20 +2,14 @@ import React from "react";
 import "./Home.css";
 import { useRef } from "react";
 
-const EssayWriting = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
-  let str2 = "French";
-  let str = `
-    
-    What rooms do you have available?
-      
-        `;
+const EssayWriting = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
+  // setOutput("")
   let output1 = "1. Nikola Tesla was a Serbian-American inventor, electrical engineer, mechanical engineer, and futurist who is best known for his contributions to the design of the modern alternating current (AC) electricity supply system. 2. Tesla's patents and theoretical work formed the basis of modern alternating current (AC) electrical power systems, including the polyphase system of electrical distribution and the AC motor. 3. Tesla's AC induction motor and alternating current power distribution were the basis for the development of the modern electric utility industry. 4. Tesla's work in the field of radiofrequency technology led to the development of wireless communication and the radio. 5. Tesla's vision of a global wireless energy network was the basis for the development of the modern day internet.";
 
   let inputRef = useRef();
-  let langRef = useRef();
 
   function handleClick() {
-    // setOutput("Running...")
+    setOutput("Running...")
     setModel("text-davinci-002")
     setPrompt(
       "What are 5 key points I should know when studying " + inputRef.current.value + ":"
@@ -47,7 +41,7 @@ const EssayWriting = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
             <p className="text-white my-3 ">Paste your Topic here :</p>
             <input
               className="w-[100%] rounded-xl bg-slate-50/10 text-left text-white p-5 mb-2 no-underline"
-              placeholder="Enter the Language"
+              placeholder="Enter in English Language"
               ref={inputRef}
             />
             {/* <textarea

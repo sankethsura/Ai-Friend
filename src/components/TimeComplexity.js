@@ -2,7 +2,9 @@ import React from "react";
 import "./Home.css";
 import { useRef } from "react";
 
-const TimeComplexity = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
+const TimeComplexity = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
+  setOutput("")
+  
   let str2 = '\n"""\nThe time complexity of this "Function" is';
   let str = `// To get the correct output ,please create a function and write code inside the function
 
@@ -18,7 +20,7 @@ const TimeComplexity = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
   let inputRef = useRef();
 
   function handleClick() {
-    // setOutput("Running...")
+    setOutput("Running...")
     setModel("text-davinci-002")
 
     setPrompt(inputRef.current.value + str2);

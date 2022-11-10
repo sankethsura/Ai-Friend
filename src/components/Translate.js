@@ -1,19 +1,20 @@
 import React from "react";
 import { useRef } from "react";
 const Translate = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
+  // setOutput("")
+
   let str2 = "French";
   let str = `
   Sentence : 
   What rooms do you have available?
     
       `;
-  let output1 = "O(nk)";
 
   let inputRef = useRef();
   let langRef = useRef();
 
   function handleClick() {
-    // setOutput("Running...")
+    setOutput("Running...")
     setModel("text-davinci-002");
 
     setPrompt(

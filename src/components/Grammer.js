@@ -3,19 +3,15 @@ import "./Home.css";
 import { useRef } from "react";
 
 const Grammer = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
-  let str2 = "French";
-  let str = `
-    
-    What rooms do you have available?
-      
-        `;
+  setOutput("")
+
   let output1 = "She didn't go to the market.";
 
   let inputRef = useRef();
   let langRef = useRef();
 
   function handleClick() {
-    // setOutput("Running...")
+    setOutput("Running...")
     setModel("text-davinci-002")
 
     setPrompt(
