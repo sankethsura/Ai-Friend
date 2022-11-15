@@ -9,6 +9,10 @@ import Grammer from "./components/Grammer";
 import ConvertToLang from "./components/ConvertToLang";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "./firebase";
+import WriteCode from "./components/WriteCode";
+import ImageGen from "./components/Image";
+import Loader from "./components/loader";
+
 
 function App() {
   let [user, setUser] = useState("");
@@ -17,18 +21,19 @@ function App() {
   let [prompt1, setPrompt] = useState("");
   let [out2, setOut2] = useState("");
   let [model, setModel] = useState("text-davinci-002");
-
+  
   // API CALL STARTED
   const { Configuration, OpenAIApi } = require("openai");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   const openai = new OpenAIApi(configuration);
 
   useEffect(() => {
-    if (prompt1) setOutput("Running...");
-    // console.log(prompt1)
+    if (prompt1) setOutput(() => {
+      return (<div className="translate-x-[100px] -translate-y-[6.5px]"><Loader /></div>)
+    });
     if (prompt1)
     (async () => {
       const response = await openai.createCompletion({
@@ -39,16 +44,13 @@ function App() {
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
       });
-      // console.log(prompt1)
-      // console.log("function running", response.data.choices[0].text);
       setOutput(response.data.choices[0].text);
       setOut2(response.data.choices[0].text);
-      // setTimeout(() => {
-      // },1000)
       console.log(output, "output");
     })();
   }, [prompt1]);
   // API CALL ENDED
+
   useEffect(() => {
     formFunc();
   }, [out2]);
@@ -90,7 +92,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <div className="w-full h-10 p-10 bg-slate-400">{output && output}</div> */}
       <BrowserRouter>
         <Routes>
           <Route
@@ -111,6 +112,18 @@ function App() {
             path="/TimeComplexity"
             element={
               <TimeComplexity
+                output={output}
+                setOutput={setOutput}
+                prompt1={prompt1}
+                setPrompt={setPrompt}
+                setModel={setModel}
+              />
+            }
+          />
+          <Route
+            path="/WriteCode"
+            element={
+              <WriteCode
                 output={output}
                 setOutput={setOutput}
                 prompt1={prompt1}
@@ -167,6 +180,18 @@ function App() {
               />
             }
           />
+          <Route
+          path="/imagegen"
+          element={
+            <ImageGen
+              output={output}
+              setOutput={setOutput}
+              prompt1={prompt1}
+              setPrompt={setPrompt}
+              setModel={setModel}
+            />
+          }
+        />
           {/* <Route
             path="/ChatBot"
             element={

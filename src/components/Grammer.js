@@ -3,7 +3,7 @@ import "./Home.css";
 import { useRef } from "react";
 
 const Grammer = ({ output, setOutput, prompt1, setPrompt,setModel }) => {
-  setOutput("")
+  // setOutput("")
 
   let output1 = "She didn't go to the market.";
 

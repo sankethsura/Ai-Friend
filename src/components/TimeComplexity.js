@@ -1,11 +1,12 @@
 import React from "react";
 import "./Home.css";
 import { useRef } from "react";
+import Loader from "./loader";
 
 const TimeComplexity = ({ output, setOutput, prompt1, setPrompt, setModel }) => {
-  setOutput("")
+  // setOutput("")
   
-  let str2 = '\n"""\nThe time complexity of this "Function" is';
+  let str2 = '\n"""\nThe time complexity of this "Function" is \n';
   let str = `// To get the correct output ,please create a function and write code inside the function
 
   def foo(n, k):
@@ -55,7 +56,7 @@ const TimeComplexity = ({ output, setOutput, prompt1, setPrompt, setModel }) => 
               ref={inputRef}
             />
             <div className="w-[100%] bg-slate-50/10 flex justify-start items-center text-white rounded-lg p-5 ">
-              AI Output :{output && output}
+              AI Output :{output && output }
             </div>
             <div
               className="w-[150px] h-[48px] bg-[#ff1f71] flex justify-center items-center rounded-3xl shadows--2 text-white mt-5 py-2 opacity-60 hover:opacity-95 duration-200 cursor-pointer"
@@ -72,7 +73,7 @@ const TimeComplexity = ({ output, setOutput, prompt1, setPrompt, setModel }) => 
               {str}
             </textarea>
             <div className="w-[100%] bg-slate-50/10 flex justify-start items-center text-white rounded-lg p-5 ">
-              Output :{output1}
+              Output :  {output1} 
             </div>
             {/* <div className="w-[150px] h-[48px] bg-[#ff1f71] flex justify-center items-center rounded-3xl shadows--2 text-white mt-5 py-2 opacity-60 duration-200 cursor-none">
               Calculate
